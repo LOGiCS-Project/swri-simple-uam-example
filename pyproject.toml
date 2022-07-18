@@ -6,12 +6,22 @@ authors = [
     {name = "Example Author", email = "example@domain.tld"},
 ]
 dependencies = [
-    "-e file:///${PROJECT_ROOT}/simple-uam#egg=simple-uam",
+    "simple-uam @ file:///${PROJECT_ROOT}/simple_uam",
 ]
 requires-python = ">=3.9,<3.11"
 license = {text = "MIT"}
 
+[project.optional-dependencies]
+
 [tool.pdm]
+
+[tool.pdm.build]
+editable-backend = "editables"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "-e file:///${PROJECT_ROOT}/simple_uam#egg=simple-uam",
+]
 
 [project.scripts]
 example = "suam_example.cli:main"
