@@ -165,6 +165,12 @@ version = "1.3.0"
 summary = "Pika Python AMQP Client Library"
 
 [[package]]
+name = "platformdirs"
+version = "2.5.2"
+requires_python = ">=3.7"
+summary = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
+
+[[package]]
 name = "prometheus-client"
 version = "0.14.1"
 requires_python = ">=3.6"
@@ -195,19 +201,18 @@ dependencies = [
 
 [[package]]
 name = "simple-uam"
-version = "0.1.dev90+g22c743f"
+version = "0.1.dev95+gab12850"
 requires_python = ">=3.9,<3.11"
-editable = true
 path = "./simple_uam"
 summary = "A set of libraries and wrappers around the SWRi athens-uav project."
 dependencies = [
     "attrs>=21.4.0",
     "dramatiq[rabbitmq,redis]>=1.13.0",
-    "editables",
     "filelock>=3.7.1",
     "gremlinpython>=3.6.0",
     "invoke>=1.7.0",
     "omegaconf>=2.2.0",
+    "platformdirs>=2.5.2",
     "structlog>=21.5.0",
 ]
 
@@ -241,7 +246,7 @@ dependencies = [
 
 [metadata]
 lock_version = "4.0"
-content_hash = "sha256:a50da427f6d2198d88acbc02bdbf69150a67339a6c7df4115021acd85f943ab7"
+content_hash = "sha256:3240e2dd5a3bf939191ddd15099646f5865c1c3287d0a504b852f3f7a0146c23"
 
 [metadata.files]
 "aenum 3.1.11" = [
@@ -514,6 +519,10 @@ content_hash = "sha256:a50da427f6d2198d88acbc02bdbf69150a67339a6c7df4115021acd85
 "pika 1.3.0" = [
     {url = "https://files.pythonhosted.org/packages/c8/d9/e44e4aa49f1bef15efc21147cbc032d07177ab300f947d915eafb3283af0/pika-1.3.0-py3-none-any.whl", hash = "sha256:9195f37aed089862b205fd8f8ce1cc6ea0a7ee3cd80f58e6eea6cb9d8411a647"},
     {url = "https://files.pythonhosted.org/packages/cc/6e/8baa90dc8de34c0c24dab067780fe01fceb114c72d7b0448a3667af900d6/pika-1.3.0.tar.gz", hash = "sha256:15357ddc47a5c28f0b07d80e93d504cbbf7a1ad5e1cd129ecd27afe76472c529"},
+]
+"platformdirs 2.5.2" = [
+    {url = "https://files.pythonhosted.org/packages/ed/22/967181c94c3a4063fe64e15331b4cb366bdd7dfbf46fcb8ad89650026fec/platformdirs-2.5.2-py3-none-any.whl", hash = "sha256:027d8e83a2d7de06bbac4e5ef7e023c02b863d7ea5d079477e722bb41ab25788"},
+    {url = "https://files.pythonhosted.org/packages/ff/7b/3613df51e6afbf2306fc2465671c03390229b55e3ef3ab9dd3f846a53be6/platformdirs-2.5.2.tar.gz", hash = "sha256:58c8abb07dcb441e6ee4b11d8df0ac856038f944ab98b7be6b27b2a3c7feef19"},
 ]
 "prometheus-client 0.14.1" = [
     {url = "https://files.pythonhosted.org/packages/19/e5/7d4b4b3b0d8d2fdc55395cdb4271c6dbfde3c3ff7d6a6dbe63d19c4e2288/prometheus_client-0.14.1-py3-none-any.whl", hash = "sha256:522fded625282822a89e2773452f42df14b5a8e84a86433e3f8a189c1d54dc01"},
