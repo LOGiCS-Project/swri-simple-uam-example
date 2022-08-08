@@ -46,6 +46,8 @@ def wait_on_result(
     """
     Uses the dramatiq backend mechanism to wait on a result from a worker.
 
+    EXAMPLE ONLY: DO NOT USE IN PRODUCTION
+
     Arguments:
       msg: The message from the dramatiq send call.
       interval: The time, in seconds, to wait between each check of the backend.
@@ -130,7 +132,7 @@ def match_msg_to_zip(
 
     metadata = get_zip_metadata(zip_file)
 
-    return metadata and msg_id == metadata['message_info']['message_id']
+    return metadata and ('message_info' in metadata) and msg_id == metadata['message_info']['message_id']
 
 def watch_results_dir(
         msg: dramatiq.Message,
@@ -141,7 +143,7 @@ def watch_results_dir(
     Checks directory every interval to see if any of the zip files match the
     provided message.
 
-    We recommend using
+    EXAMPLE ONLY: DO NOT USE IN PRODUCTION
 
     Arguments:
       msg: The message we sent to the broker
@@ -191,7 +193,7 @@ def get_args():
     parser.add_argument(
         'results_dir',
         type=Path,
-        help='The directory where result zips will appear when created',
+        help='The directory that will be checked when looking for new results.',
     )
     parser.add_argument(
         'design_file',
@@ -248,6 +250,9 @@ def main():
     print("Waiting for results")
     use_backend = (args.watch == 'backend') or (has_backend() and args.watch != 'polling')
     result_archive = None
+
+    ### EVERYTHING BELOW THIS POINT IS AN EXAMPLE ###
+    ###   THAT SHOULDN'T BE USED IN PRODUCTION    ###
 
     if use_backend:
 
